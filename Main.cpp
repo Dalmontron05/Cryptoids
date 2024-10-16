@@ -7,6 +7,7 @@
 #include <string>
 
 // #include "main.h"
+#include "Color-Codes.cpp"
 
 using namespace std;
 
@@ -20,6 +21,6 @@ using namespace std;
 // Functions
 int main()
 {
-    cout << "Hello World!";
+    cout << colors.GREEN_BACKGROUND << "Hello World!";
 }
 
