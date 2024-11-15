@@ -2,19 +2,33 @@ package Cryptoids.Creatures;
 
 public class Cryptoid {
     // Attributes
-    private String name;
-    private String type;
-    private int attack;
-    private int hp;
-    private String art;
+    public String name;
+     // All possible types of cryptoids: Normal, Water
+    public String type;
+    public int attack;
+    public int totalHp;
+    public int currentHp;
+    public String art;
 
-    public Cryptoid(String name, String type, int attack, int hp, String art)
+    // Constructors
+    // public Cryptoid(String name, String type, int attack, int totalHp, int currentHp, String art)
+    // {
+    //     this.name = name; 
+    //     this.type = type; 
+    //     this.attack = attack; 
+    //     this.totalHp = totalHp; 
+    //     this.currentHp = currentHp; 
+    //     this.art = art; 
+    // }
+
+    public Cryptoid()
     {
-        this.name = name; 
-        this.type = type; 
-        this.attack = attack; 
-        this.hp = hp; 
-        this.art = art; 
+        name = "Cryptoid";
+        type = "Normal";
+        attack = 25;
+        totalHp = 75;
+        currentHp = 75;
+        art = "?";
     }
 }
 
