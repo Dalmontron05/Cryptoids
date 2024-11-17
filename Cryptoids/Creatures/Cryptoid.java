@@ -2,33 +2,15 @@ package Cryptoids.Creatures;
 
 public class Cryptoid {
     // Attributes
-    public String name;
-     // All possible types of cryptoids: Normal, Water
-    public String type;
-    public int attack;
-    public int totalHp;
-    public int currentHp;
-    public String art;
-
-    // Constructors
-    // public Cryptoid(String name, String type, int attack, int totalHp, int currentHp, String art)
-    // {
-    //     this.name = name; 
-    //     this.type = type; 
-    //     this.attack = attack; 
-    //     this.totalHp = totalHp; 
-    //     this.currentHp = currentHp; 
-    //     this.art = art; 
-    // }
-
-    public Cryptoid()
-    {
-        name = "Cryptoid";
-        type = "Normal";
-        attack = 25;
-        totalHp = 75;
-        currentHp = 75;
-        art = "?";
-    }
+    public static final String name = "Cryptoid";
+    // All possible types of cryptoids: Normal, Water, Flying
+    public static final String type = "Normal";
+    public static final int attack = 25;
+    public static final int totalHp = 75;
+    public static int currentHp = 75;
+    /* ASKII Art Should be 50 characters long 
+       Generate the art at https://www.asciiart.eu/image-to-ascii
+    */
+    public static final String art = "";
 }
 
