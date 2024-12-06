@@ -1,5 +1,7 @@
 package Cryptoids.Creatures;
 
+import ANSI.ConsoleColors;
+
 public class Bigfoot extends Cryptoid
 {
     // Constructor
@@ -39,7 +41,8 @@ public class Bigfoot extends Cryptoid
             ". ..... =@@@@@@@............ ...*@@@@#*++%@@.. ...\r\n" +
             "........#@@@@@@@@%-.............:@@@@@@@@@........\r\n" +
             "... ........-%@%#*%+............=@@@@%*=.. .......\r\n" +
-            ".................................. ........... ..."
+            ".................................. ........... ..." +
+            ConsoleColors.RESET
         );
     }
 }

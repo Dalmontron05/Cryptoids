@@ -35,10 +35,10 @@ public class Main
         // }
 
         // Asks players for their names
-        System.out.println("What is Player 1's name?");
+        // System.out.println("What is Player 1's name?");
         // player1Name = in.nextLine();
 
-        System.out.println("What is PLayer 2's Name?");
+        // System.out.println("What is PLayer 2's Name?");
         // player2Name = in.nextLine();
 
 
