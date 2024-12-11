@@ -1,6 +1,6 @@
 package Cryptoids.Creatures;
 
-import ANSI.ConsoleColors;
+import ANSI.EscapeCodes;
 
 public class Mothman extends Cryptoid
 {
@@ -42,9 +42,9 @@ public class Mothman extends Cryptoid
             "....................... ........... ..............\r\n" + //
             ".................................... .............\r\n" + //
             "....... ........... .............. .............. " +
-            ConsoleColors.RESET
+            EscapeCodes.RESET
         );
     }
 }
 
-// ".... .*@@@@@@@@@@@@@@@@" + ConsoleColors.RED_BACKGROUND_BRIGHT + "%" + ConsoleColors.RESET + "@@" + ConsoleColors.RED_BACKGROUND_BRIGHT + "%" + ConsoleColors.RESET + "@@@@@@@@@@@@@@@@+..... \r\n" + //
+// ".... .*@@@@@@@@@@@@@@@@" + EscapeCodes.RED_BACKGROUND_BRIGHT + "%" + EscapeCodes.RESET + "@@" + EscapeCodes.RED_BACKGROUND_BRIGHT + "%" + EscapeCodes.RESET + "@@@@@@@@@@@@@@@@+..... \r\n" + //

@@ -1,6 +1,6 @@
 package Cryptoids.Creatures;
 
-import ANSI.ConsoleColors;
+import ANSI.EscapeCodes;
 
 public class Bigfoot extends Cryptoid
 {
@@ -42,7 +42,7 @@ public class Bigfoot extends Cryptoid
             "........#@@@@@@@@%-.............:@@@@@@@@@........\r\n" +
             "... ........-%@%#*%+............=@@@@%*=.. .......\r\n" +
             ".................................. ........... ..." +
-            ConsoleColors.RESET
+            EscapeCodes.RESET
         );
     }
 }
