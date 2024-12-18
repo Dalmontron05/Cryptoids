@@ -18,5 +18,14 @@ public class Player
         this.deck = deck; // the first index is considered the "current" cryptoid enganged in combat
         currentCryptoid = deck.get(0);
     }
+
+    //* Setters and Getters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
 

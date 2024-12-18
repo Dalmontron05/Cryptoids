@@ -47,4 +47,4 @@ public class Mothman extends Cryptoid
     }
 }
 
-// ".... .*@@@@@@@@@@@@@@@@" + EscapeCodes.RED_BACKGROUND_BRIGHT + "%" + EscapeCodes.RESET + "@@" + EscapeCodes.RED_BACKGROUND_BRIGHT + "%" + EscapeCodes.RESET + "@@@@@@@@@@@@@@@@+..... \r\n" + //
+

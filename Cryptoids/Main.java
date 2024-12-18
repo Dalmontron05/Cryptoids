@@ -35,7 +35,7 @@ public class Main
             System.out.println("Who is Player 2?");
             player2Name = in.nextLine();
             
-            clear();
+            // clear();
     
             // Objects
             // Cryptoids
@@ -50,7 +50,7 @@ public class Main
             }};
             // player 2 default deck
             ArrayList<Cryptoid> p2DefaultDeck = new ArrayList<Cryptoid>() {{
-                Bigfoot Mothman1 = new Bigfoot();
+                Mothman Mothman1 = new Mothman();
                 Mothman Mothman2 = new Mothman();
                 Bigfoot Bigfoot1 = new Bigfoot();
                 add(Mothman1);
@@ -80,8 +80,15 @@ public class Main
             // Main Gameplay Loop
             do
             {
+                clear();
+                hasPlayerWon = false;
+
+                // Variables
+                int player1Choice, player2Choice;
+
                 // Round counter
                 gameplayLoopIndex++;
+                // * Player 1 Action Sequence
                 System.out.println(EscapeCodes.WHITE_BRIGHT + EscapeCodes.BLACK_BACKGROUND + "\t\t\t\t\tRound " + gameplayLoopIndex + EscapeCodes.RESET);
 
                 // Player 1 Status Bar
@@ -93,8 +100,93 @@ public class Main
                 System.out.print("\t" + EscapeCodes.BLUE_BOLD + player2.name + EscapeCodes.RESET + "'s Current Cryptoid (right): " + EscapeCodes.CYAN_BOLD + player2.currentCryptoid.getName() + EscapeCodes.RESET + " | ");
                 System.out.print("Health: " + EscapeCodes.GREEN_BOLD + player2.currentCryptoid.getCurrentHp() + EscapeCodes.RESET + "/" + EscapeCodes.GREEN + player2.currentCryptoid.getTotalHp() + " " + EscapeCodes.RESET);
                 System.out.println("Attack: " + EscapeCodes.RED_BRIGHT + player2.currentCryptoid.getAttack() + EscapeCodes.RESET);
+
+                System.out.println(player1.currentCryptoid.getArt());
+
+                // Asks user to input action
+                System.out.println("What will " + EscapeCodes.BLUE_BOLD + player1.name + " do?" + EscapeCodes.RESET);
+                System.out.println(EscapeCodes.CYAN_BOLD + "1) " + EscapeCodes.RESET + "Attack");
+                System.out.println(EscapeCodes.CYAN_BOLD + "2) " + EscapeCodes.RESET + "Flee");
+                player1Choice = in.nextInt();
+
+                if (player1Choice == 1)
+                {
+                    // Attack
+                    System.out.println(player1.currentCryptoid.getName() + " attacks " + player2.currentCryptoid.getName() + " for " + player1.currentCryptoid.getAttack());
+                    boolean hasBeatOpponent = player1.currentCryptoid.attackSequence(player2.currentCryptoid);
+
+                    // checks if oponents's cryptoid has died after the attack
+                    if (hasBeatOpponent == true)
+                    {
+                        System.out.println(player2.currentCryptoid.getName() + " has fallen!");
+                        player2.deck.remove(0);
+
+                        // checks if opponent ran out of cryptoids in their deck after the cryptoid died
+                        if (player2.deck.isEmpty())
+                        {
+                            System.out.println(player2.getName() + " has ran out of Cryptoids! " + player1.getName() + " is the winner!");
+                            hasPlayerWon = true;
+                        }
+                    }
+                }
+                else
+                {
+                    // Flee
+                    System.out.println("You chose to Flee. " + player2.name + " wins!");
+                    System.exit(0);
+                }
                 
-                hasPlayerWon = true;
+                clear();
+                
+                // * Player 2 Action Sequence
+                // Round counter
+                System.out.println(EscapeCodes.WHITE_BRIGHT + EscapeCodes.BLACK_BACKGROUND + "\t\t\t\t\tRound " + gameplayLoopIndex + EscapeCodes.RESET);
+                
+                // Player 1 Status Bar
+                System.out.print("\t" + EscapeCodes.BLUE_BOLD + player1.name + EscapeCodes.RESET + "'s Current Cryptoid (left): " + EscapeCodes.CYAN_BOLD + player1.currentCryptoid.getName() + EscapeCodes.RESET + " | ");
+                System.out.print("Health: " + EscapeCodes.GREEN_BOLD + player1.currentCryptoid.getCurrentHp() + EscapeCodes.RESET + "/" + EscapeCodes.GREEN + player1.currentCryptoid.getTotalHp() + " " + EscapeCodes.RESET);
+                System.out.println("Attack: " + EscapeCodes.RED_BRIGHT + player1.currentCryptoid.getAttack() + EscapeCodes.RESET);
+                
+                // Player 2 Status Bar
+                System.out.print("\t" + EscapeCodes.BLUE_BOLD + player2.name + EscapeCodes.RESET + "'s Current Cryptoid (right): " + EscapeCodes.CYAN_BOLD + player2.currentCryptoid.getName() + EscapeCodes.RESET + " | ");
+                System.out.print("Health: " + EscapeCodes.GREEN_BOLD + player2.currentCryptoid.getCurrentHp() + EscapeCodes.RESET + "/" + EscapeCodes.GREEN + player2.currentCryptoid.getTotalHp() + " " + EscapeCodes.RESET);
+                System.out.println("Attack: " + EscapeCodes.RED_BRIGHT + player2.currentCryptoid.getAttack() + EscapeCodes.RESET);
+                
+                System.out.println(player2.currentCryptoid.getArt());
+
+                // Asks user to input action
+                System.out.println("What will " + EscapeCodes.RED_BOLD + player2.name + " do?" + EscapeCodes.RESET);
+                System.out.println(EscapeCodes.CYAN_BOLD + "1) " + EscapeCodes.RESET + "Attack");
+                System.out.println(EscapeCodes.CYAN_BOLD + "2) " + EscapeCodes.RESET + "Flee");
+                player2Choice = in.nextInt();
+
+                if (player2Choice == 1)
+                {
+                    // Attack
+                    System.out.println(player2.currentCryptoid.getName() + " attacks " + player1.currentCryptoid.getName() + " for " + player2.currentCryptoid.getAttack());
+                    boolean hasBeatOpponent = player2.currentCryptoid.attackSequence(player1.currentCryptoid);
+
+                    // checks if oponents's cryptoid has died after the attack
+                    if (hasBeatOpponent == true)
+                    {
+                        System.out.println(player1.currentCryptoid.getName() + " has fallen!");
+                        player1.deck.remove(0);
+
+                        // checks if opponent ran out of cryptoids in their deck after the cryptoid died
+                        if (player1.deck.isEmpty())
+                        {
+                            System.out.println(player1.getName() + " has ran out of Cryptoids! " + player2.getName() + " is the winner!");
+                            hasPlayerWon = true;
+                        }
+                    }
+                }
+                else
+                {
+                    // Flee
+                    System.out.println("You chose to Flee. " + player1.name + " wins!");
+                    System.exit(0);
+                }
+                
             }
             while (hasPlayerWon == false);
 
