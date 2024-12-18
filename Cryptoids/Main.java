@@ -8,22 +8,22 @@ import ANSI.EscapeCodes;
 import Cryptoids.Creatures.*;
 
 // TODO: refactor the whole introduction and tutorial in other methods. when you make the replay do loop, exclude those during a 'replay.'
+// TODO: refactor colorcodes to have generic bold, highlight, etc modifeires for ansi codes and just use a color and another type before using reset.
 
 public class Main
 {
     public static void main(String[] args)
     {
-        
         // Variables
         String player1Name, player2Name;
-        Boolean playTutorial, willReplay;
+        Boolean playTutorial, willReplay = false, hasPlayerWon = false;
+        int gameplayLoopIndex = 0;
         
         // Lets the users replay the game
         do
         {
             Scanner in = new Scanner(System.in);
             clear();
-            willReplay = false;
 
             // Introduction
             System.out.println("Hello, Welcome to Cryptoids! This is a local multiplayer 1v1 card game. You and a friend can make a deck of various cryptids you know and love like bigfoot and mothman.\nLet's start with your names.");
@@ -50,12 +50,12 @@ public class Main
             }};
             // player 2 default deck
             ArrayList<Cryptoid> p2DefaultDeck = new ArrayList<Cryptoid>() {{
+                Bigfoot Mothman1 = new Bigfoot();
+                Mothman Mothman2 = new Mothman();
                 Bigfoot Bigfoot1 = new Bigfoot();
-                Bigfoot Bigfoot2 = new Bigfoot();
-                Mothman Mothman1 = new Mothman();
-                add(Bigfoot1);
-                add(Bigfoot2);
                 add(Mothman1);
+                add(Mothman2);
+                add(Bigfoot1);
             }};
     
             // Players
@@ -74,8 +74,29 @@ public class Main
             // }
             // else
             // {
-                System.out.println("Alright, let's get into the game.");
+            //    System.out.println("Alright, let's get into the game.");
             // }
+
+            // Main Gameplay Loop
+            do
+            {
+                // Round counter
+                gameplayLoopIndex++;
+                System.out.println(EscapeCodes.BLACK_BACKGROUND_BRIGHT + "Round " + gameplayLoopIndex + EscapeCodes.RESET);
+
+                // Player 1 Status Bar
+                System.out.print("\t" + EscapeCodes.BLUE_BOLD + player1.name + EscapeCodes.RESET + "'s Current Cryptoid (left): " + EscapeCodes.CYAN_BOLD + player1.currentCryptoid.getName() + EscapeCodes.RESET + "  |  ");
+                System.out.print("Health: " + EscapeCodes.GREEN_BOLD + player1.currentCryptoid.getCurrentHp() + EscapeCodes.RESET + "/" + EscapeCodes.GREEN + player1.currentCryptoid.getTotalHp() + "\t" + EscapeCodes.RESET);
+                System.out.println("Attack: " + EscapeCodes.RED_BRIGHT + player1.currentCryptoid.getAttack() + EscapeCodes.RESET);
+
+                // Player 2 Status Bar
+                System.out.print("\t" + EscapeCodes.BLUE_BOLD + player2.name + EscapeCodes.RESET + "'s Current Cryptoid (right): " + EscapeCodes.CYAN_BOLD + player2.currentCryptoid.getName() + EscapeCodes.RESET + "  |  ");
+                System.out.print("Health: " + EscapeCodes.GREEN_BOLD + player2.currentCryptoid.getCurrentHp() + EscapeCodes.RESET + "/" + EscapeCodes.GREEN + player2.currentCryptoid.getTotalHp() + "\t" + EscapeCodes.RESET);
+                System.out.println("Attack: " + EscapeCodes.RED_BRIGHT + player2.currentCryptoid.getAttack() + EscapeCodes.RESET);
+                
+                hasPlayerWon = true;
+            }
+            while (hasPlayerWon == false);
 
             // Replay system
             System.out.println("Would you like to play again? (true/false)");

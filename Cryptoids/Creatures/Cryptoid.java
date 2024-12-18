@@ -26,8 +26,37 @@ public class Cryptoid
         this.currentHp = currentHp;
         this.art = art;
     }
+    
+    //* Methods
+    // attackSequence will automatically call attack, isHealth0, and takeDamage. It'll returns if the other cryptoid is dead
+    // WHY: some functions need to be called by this cryptoid, others need to be called by the opposing cryptoid
+    public boolean attackSequence(Cryptoid other)
+    {
+        attack(other);
+        Boolean isOtherDead = other.isHealth0();
+        return isOtherDead;
+    }
 
+    public void attack(Cryptoid other)
+    {
+        other.takeDamage(getAttack());
+    }
 
+    public boolean isHealth0()
+    {
+        if (currentHp <= 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void takeDamage(int damage)
+    {
+        currentHp -= damage;
+    }
+
+    
     //* Setters and Getters
     public String getName() {
         return name;
@@ -75,13 +104,6 @@ public class Cryptoid
 
     public void setArt(String art) {
         this.art = art;
-    }
-
-
-    //* Methods
-    public void printArt()
-    {
-        System.out.println(art);
     }
 }
 
