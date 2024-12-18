@@ -82,16 +82,16 @@ public class Main
             {
                 // Round counter
                 gameplayLoopIndex++;
-                System.out.println(EscapeCodes.BLACK_BACKGROUND_BRIGHT + "Round " + gameplayLoopIndex + EscapeCodes.RESET);
+                System.out.println(EscapeCodes.WHITE_BRIGHT + EscapeCodes.BLACK_BACKGROUND + "\t\t\t\t\tRound " + gameplayLoopIndex + EscapeCodes.RESET);
 
                 // Player 1 Status Bar
-                System.out.print("\t" + EscapeCodes.BLUE_BOLD + player1.name + EscapeCodes.RESET + "'s Current Cryptoid (left): " + EscapeCodes.CYAN_BOLD + player1.currentCryptoid.getName() + EscapeCodes.RESET + "  |  ");
-                System.out.print("Health: " + EscapeCodes.GREEN_BOLD + player1.currentCryptoid.getCurrentHp() + EscapeCodes.RESET + "/" + EscapeCodes.GREEN + player1.currentCryptoid.getTotalHp() + "\t" + EscapeCodes.RESET);
+                System.out.print("\t" + EscapeCodes.BLUE_BOLD + player1.name + EscapeCodes.RESET + "'s Current Cryptoid (left): " + EscapeCodes.CYAN_BOLD + player1.currentCryptoid.getName() + EscapeCodes.RESET + " | ");
+                System.out.print("Health: " + EscapeCodes.GREEN_BOLD + player1.currentCryptoid.getCurrentHp() + EscapeCodes.RESET + "/" + EscapeCodes.GREEN + player1.currentCryptoid.getTotalHp() + " " + EscapeCodes.RESET);
                 System.out.println("Attack: " + EscapeCodes.RED_BRIGHT + player1.currentCryptoid.getAttack() + EscapeCodes.RESET);
 
                 // Player 2 Status Bar
-                System.out.print("\t" + EscapeCodes.BLUE_BOLD + player2.name + EscapeCodes.RESET + "'s Current Cryptoid (right): " + EscapeCodes.CYAN_BOLD + player2.currentCryptoid.getName() + EscapeCodes.RESET + "  |  ");
-                System.out.print("Health: " + EscapeCodes.GREEN_BOLD + player2.currentCryptoid.getCurrentHp() + EscapeCodes.RESET + "/" + EscapeCodes.GREEN + player2.currentCryptoid.getTotalHp() + "\t" + EscapeCodes.RESET);
+                System.out.print("\t" + EscapeCodes.BLUE_BOLD + player2.name + EscapeCodes.RESET + "'s Current Cryptoid (right): " + EscapeCodes.CYAN_BOLD + player2.currentCryptoid.getName() + EscapeCodes.RESET + " | ");
+                System.out.print("Health: " + EscapeCodes.GREEN_BOLD + player2.currentCryptoid.getCurrentHp() + EscapeCodes.RESET + "/" + EscapeCodes.GREEN + player2.currentCryptoid.getTotalHp() + " " + EscapeCodes.RESET);
                 System.out.println("Attack: " + EscapeCodes.RED_BRIGHT + player2.currentCryptoid.getAttack() + EscapeCodes.RESET);
                 
                 hasPlayerWon = true;
